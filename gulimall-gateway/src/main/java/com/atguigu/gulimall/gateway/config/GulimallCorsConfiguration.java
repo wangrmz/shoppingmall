@@ -18,11 +18,10 @@ import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
 public class GulimallCorsConfiguration {
 
     // 使用springboot 提供 CorsWebFilter
-
+    // 生产环境需要配置nginx解决跨域问题
     @Bean
     public CorsWebFilter corsWebFilter(){
 
-        // ctrl+H :查看类的继承关系
         // 主要通过配置这个
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration corsConfiguration = new CorsConfiguration();
@@ -30,12 +29,8 @@ public class GulimallCorsConfiguration {
         corsConfiguration.addAllowedHeader("*");
         corsConfiguration.addAllowedMethod("*");
         corsConfiguration.addAllowedOrigin("*");
-        corsConfiguration.setAllowCredentials(true);// 允许携带请求头
-
-
+        corsConfiguration.setAllowCredentials(true);// 允许携带cookie
         source.registerCorsConfiguration("/**",corsConfiguration);
-
-
         CorsWebFilter corsWebFilter = new CorsWebFilter(source);
         return corsWebFilter;
     }
