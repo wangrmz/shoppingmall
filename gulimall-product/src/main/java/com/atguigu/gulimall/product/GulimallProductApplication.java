@@ -23,7 +23,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  *      	1）、使用注解@MapperScan
  *  *     	2）、告诉映射文件的位置
  *
- *
+ * 2、https://baomidou.com/pages/6b03c5/#%E6%AD%A5%E9%AA%A4-1-%E9%85%8D%E7%BD%AEcom-baomidou-mybatisplus-core-config-globalconfig-dbconfig
+ * 参考官网进行配置
+ * 配置全局逻辑删除
+ * 注解@TableLogic
  */
 @SpringBootApplication
 @EnableDiscoveryClient
